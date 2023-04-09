@@ -48,6 +48,10 @@ public class Main {
     public static void main(String[] args) {
         //Un valor que determina cuandto se desplaza la linea de la original
         double factorDesplazamiento;
+        
+         //Definir la escala del lienzo del dibujo
+        StdDraw.setXscale(minimo, maximo);
+        StdDraw.setYscale(minimo, maximo);
 
         //Evitar parpadeo de la pantalla
         StdDraw.enableDoubleBuffering();
@@ -82,6 +86,7 @@ public class Main {
     /**
      * Rutina que permite dibujar una linea
      * @param colorLinea color de la lista
+     * @param indiceIndicadorLinea indice que indica del arreglo de los colores
      */
     public static void crearLinea(Color colorLinea, int indiceIndicadorLinea){
         //Colision con borde lienzo
@@ -128,7 +133,6 @@ public class Main {
             posicion = 2;
         } else if (random < 0.8) {
             posicion = 3;
-
         } else {
             posicion = 4;
         }
@@ -154,39 +158,5 @@ public class Main {
         }
 
         return resultado;
-    }
-
-    //Crear un archivo para rutear (borrar para futuro)
-    public static void crearArchivoRuteo(String nombreArchivo){
-        File archivo = new File(nombreArchivo);
-
-        //Excepcion por si existe o no el archivo
-        try {
-            PrintWriter salida = new PrintWriter(archivo);
-            salida.close();
-            System.out.println("Archivo de ruteo creado");
-        }
-        catch (FileNotFoundException excepcion){
-            excepcion.printStackTrace(System.out);
-        }
-    }
-
-    //Crear un archivo para rutear (borrar para futuro)
-    public static void escribirArchivoRuteo(String nombreArchivo, String contenido){
-        File archivo = new File(nombreArchivo);
-
-        //Excepcion por si existe o no el archivo
-        try {
-            PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
-            salida.println(contenido);
-            salida.close();
-            //System.out.println("Archivo de ruteo escrito en el");
-        }
-        catch (FileNotFoundException excepcion){
-            excepcion.printStackTrace(System.out);
-        }
-        catch (IOException ex){
-            ex.printStackTrace(System.out);
-        }
     }
 }
