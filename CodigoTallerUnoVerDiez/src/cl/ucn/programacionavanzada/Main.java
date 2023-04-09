@@ -49,22 +49,6 @@ public class Main {
         //Un valor que determina cuandto se desplaza la linea de la original
         double factorDesplazamiento;
 
-        String registroImpresion = "";
-
-        //Crear archivoRuteo
-        crearArchivoRuteo("ruteo.txt");
-
-        registroImpresion = puntoXInicio + ";" + puntoYInicio + ";";
-        registroImpresion = registroImpresion + puntoXFinal + ";" + puntoYFinal + ";";
-        registroImpresion = registroImpresion + velocidadXInicio + ";" + velocidadYInicio + ";";
-        registroImpresion = registroImpresion + velocidadXFinal + ";" + velocidadYFinal;
-
-        escribirArchivoRuteo("ruteo.txt", registroImpresion);
-
-        //Definir la escala del lienzo del dibujo
-        StdDraw.setXscale(minimo, maximo);
-        StdDraw.setYscale(minimo, maximo);
-
         //Evitar parpadeo de la pantalla
         StdDraw.enableDoubleBuffering();
 
